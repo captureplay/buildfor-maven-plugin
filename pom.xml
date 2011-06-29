@@ -53,4 +53,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+		<scm>
+		<connection>scm:git:git@github.com:captureplay/buildfor-maven-plugin.git
+		</connection>
+		<developerConnection>scm:git:git@github.com:captureplay/buildfor-maven-plugin.git
+		</developerConnection>
+		<url>https://github.com/captureplay/buildfor-maven-plugin</url>
+	</scm>
 </project>
