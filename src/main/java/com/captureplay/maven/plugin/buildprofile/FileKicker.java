@@ -22,7 +22,7 @@ public class FileKicker {
 					String[] newNameArray = nameExtension[0].split("-");
 					String newName = newNameArray[0] + "." + nameExtension[1];
 //					getLog().info("original: " + file.getName() + ", new: " + newName);
-					File newFile = new File("outDir/" + newName);
+					File newFile = new File(outDir+ "/" + newName);
 					try {
 						FileUtils.deleteQuietly(newFile);
 						FileUtils.moveFile(file, newFile);
