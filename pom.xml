@@ -40,7 +40,7 @@
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<goalPrefix>buildfor-maven-plugin</goalPrefix>
+					<goalPrefix>buildfor</goalPrefix>
 				</configuration>
 				<executions>
 					<execution>
