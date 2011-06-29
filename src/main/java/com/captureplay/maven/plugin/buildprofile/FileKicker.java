@@ -15,21 +15,25 @@ public class FileKicker {
 //		getLog().info("Location: " + outDir);
 		for (File file : classpathFiles) {
 			if (!file.isDirectory()) {
-				if (file.getName().contains(env)) {
-//					getLog().info(file.getName() + " contains " + env);
-//					getLog().info(file.getAbsolutePath());
-					String[] nameExtension = file.getName().split("\\.");
-					String[] newNameArray = nameExtension[0].split("-");
-					String newName = newNameArray[0] + "." + nameExtension[1];
-//					getLog().info("original: " + file.getName() + ", new: " + newName);
-					File newFile = new File(outDir+ "/" + newName);
-					try {
-						FileUtils.deleteQuietly(newFile);
-						FileUtils.moveFile(file, newFile);
-					} catch (IOException e) {
-						throw new MojoExecutionException("failed to move file", e);
-					}
-				}
+				processFile(file, outDir, env);
+			}
+		}
+	}
+	
+	private static void processFile(File file, String outDir, String env) throws MojoExecutionException {
+		if (file.getName().contains(env)) {
+//			getLog().info(file.getName() + " contains " + env);
+//			getLog().info(file.getAbsolutePath());
+			String[] nameExtension = file.getName().split("\\.");
+			String[] newNameArray = nameExtension[0].split("-");
+			String newName = newNameArray[0] + "." + nameExtension[1];
+//			getLog().info("original: " + file.getName() + ", new: " + newName);
+			File newFile = new File(outDir+ "/" + newName);
+			try {
+				FileUtils.deleteQuietly(newFile);
+				FileUtils.moveFile(file, newFile);
+			} catch (IOException e) {
+				throw new MojoExecutionException("failed to move file", e);
 			}
 		}
 	}

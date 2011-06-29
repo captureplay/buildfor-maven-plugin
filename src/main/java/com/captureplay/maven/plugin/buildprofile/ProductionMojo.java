@@ -16,8 +16,8 @@ package com.captureplay.maven.plugin.buildprofile;
  * limitations under the License.
  */
 
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
 
 /**
  * Goal which touches a timestamp file.
@@ -26,15 +26,10 @@ import org.apache.maven.plugin.MojoExecutionException;
  * 
  * @phase prepare-package
  */
-public class ProductionMojo extends AbstractMojo {
-
-	/**
-	 * @parameter expression="${project.build.outputDirectory}"
-	 */
-	private String outDir;
+public class ProductionMojo extends GenericEnvMojo {
 	
-	private String env = "production";
-	public void execute() throws MojoExecutionException {
-		FileKicker.configureForEnv(env, outDir);
+	public void execute() throws MojoExecutionException, MojoFailureException {
+		super.setEnv("production");
+		super.execute();
 	}
 }
