@@ -61,4 +61,19 @@
 		</developerConnection>
 		<url>https://github.com/captureplay/buildfor-maven-plugin</url>
 	</scm>
+	
+	<distributionManagement>
+	    <repository>
+	        <id>captureplay-repo</id>
+	        <name>captureplay-repo-releases</name>
+	        <url>https://captureplay.merseine.nu/artifactory/plugins-release-local</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>captureplay-repo</id>
+	        <name>captureplay-repo-snapshots</name>
+	        <url>https://captureplay.merseine.nu/artifactory/plugins-snapshot-local</url>
+	    </snapshotRepository>
+	
+	</distributionManagement>
+
 </project>
